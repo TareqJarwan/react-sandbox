@@ -4,7 +4,7 @@ import {Route} from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Student from "./Student";
-import AddStudent from "./AddStudent";
+import Attendance from "./Attendance";
 
 class Dashboard extends Component {
     constructor() {
@@ -20,8 +20,8 @@ class Dashboard extends Component {
                 <div id="page-content-wrapper">
                     <Navbar/>
                     <div className="container-fluid my-4">
-                        <Route path="/student/show" exact component={Student}/>
-                        <Route path="/student/add" exact component={AddStudent}/>
+                        <Route path="/student" exact component={Student}/>
+                        <Route path="/attendance" exact component={Attendance}/>
                     </div>
                 </div>
             </div>
