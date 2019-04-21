@@ -5,6 +5,8 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Student from "./Student";
 import Attendance from "./Attendance";
+import Gallary from "./Gallary";
+import Video from "./Video";
 
 class Dashboard extends Component {
     constructor() {
@@ -22,6 +24,8 @@ class Dashboard extends Component {
                     <div className="container-fluid my-4">
                         <Route path="/student" exact component={Student}/>
                         <Route path="/attendance" exact component={Attendance}/>
+                        <Route path="/gallary" exact component={Gallary}/>
+                        <Route path="/video" exact component={Video}/>
                     </div>
                 </div>
             </div>
