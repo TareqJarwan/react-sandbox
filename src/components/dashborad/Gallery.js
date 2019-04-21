@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
-import ShowGallary from "./ShowGallary";
-import Video from "./Video";
-import AddMultimedia from "./AddMultimedia";
 
-class Gallary extends Component {
+import ShowGallery from "./ShowGallery";
+import Video from "./Video";
+import AddEvent from "./AddEvent";
+
+class Gallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,7 +41,7 @@ class Gallary extends Component {
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '3'})}
                                  onClick={() => this.toggle('3')}>
-                            <i className="fa fa-plus-circle"/> Add New Multimedia
+                            <i className="fa fa-plus-circle"/> Add New Event
                         </NavLink>
                     </NavItem>
                 </Nav>
@@ -49,7 +50,7 @@ class Gallary extends Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <ShowGallary/>
+                                <ShowGallery/>
                             </Col>
                         </Row>
                     </TabPane>
@@ -63,7 +64,7 @@ class Gallary extends Component {
                     <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
-                                <AddMultimedia/>
+                                <AddEvent/>
                             </Col>
                         </Row>
                     </TabPane>
@@ -73,4 +74,4 @@ class Gallary extends Component {
     }
 }
 
-export default Gallary;
+export default Gallery;

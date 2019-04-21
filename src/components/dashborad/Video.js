@@ -18,7 +18,7 @@ class Video extends Component {
 
     render() {
         const iframes = this.state.urls.map((url) => {
-            return <div className="col-sm-4 mb-5">
+            return <div className="col-sm-4 mb-5" key={url}>
                 <div className="embed-responsive embed-responsive-16by9">
                     <iframe className="embed-responsive-item" title={url} src={url}/>
                 </div>

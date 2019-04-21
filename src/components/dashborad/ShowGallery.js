@@ -10,7 +10,7 @@ import image7 from '../../assets/img/image7.jpg';
 import image8 from '../../assets/img/image8.jpg';
 import image9 from '../../assets/img/image9.jpg';
 
-class ShowGallary extends Component {
+class ShowGallery extends Component {
     render() {
         return (<div className="jumbotron bg-light">
                 <div className="panel-body mb-3">
@@ -112,4 +112,4 @@ class ShowGallary extends Component {
     }
 }
 
-export default ShowGallary;
+export default ShowGallery;

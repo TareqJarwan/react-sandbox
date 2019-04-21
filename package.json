@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@syncfusion/ej2-react-inputs": "^17.1.41",
     "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^3.0.2",
