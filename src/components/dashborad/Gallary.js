@@ -3,6 +3,7 @@ import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
 import ShowGallary from "./ShowGallary";
 import Video from "./Video";
+import AddMultimedia from "./AddMultimedia";
 
 class Gallary extends Component {
     constructor(props) {
@@ -27,13 +28,19 @@ class Gallary extends Component {
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '1'})}
                                  onClick={() => this.toggle('1')}>
-                            <i className="fa fa-list"/> Gallary
+                            <i className="fa fa-list"/> Gallery
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '2'})}
                                  onClick={() => this.toggle('2')}>
                             <i className="fa fa-list"/> Video
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className={classnames({active: this.state.activeTab === '3'})}
+                                 onClick={() => this.toggle('3')}>
+                            <i className="fa fa-plus-circle"/> Add New Multimedia
                         </NavLink>
                     </NavItem>
                 </Nav>
@@ -50,6 +57,13 @@ class Gallary extends Component {
                         <Row>
                             <Col sm="12">
                                 <Video/>
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="3">
+                        <Row>
+                            <Col sm="12">
+                                <AddMultimedia/>
                             </Col>
                         </Row>
                     </TabPane>
