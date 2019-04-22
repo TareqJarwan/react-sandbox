@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import RcViewer from 'rc-viewer'
 
 import image1 from '../../assets/img/image1.jpg';
 import image2 from '../../assets/img/image2.jpg';
@@ -31,23 +32,24 @@ class ShowGallery extends Component {
 
     render() {
         const images = this.state.urls.map((url) => {
-            return <div className="col-sm-4 p-3" key={url}>
-                <a className="lightbox" href={url} target="_blank" rel="noopener noreferrer">
-                    <img className="img-fluid image" src={url} alt={this.state.description}/>
-                    <span className="description">
-                        <span className="description-heading">Lorem Ipsum</span>
-                        <span className="description-body">{this.state.description}</span>
-                    </span>
-                </a>
+            return <div className="col-sm-3 p-3" key={url}>
+                <img className="img-fluid image" src={url} alt={this.state.description}/>
+                <span className="description">
+                    <span className="d-inline-block text-truncate" style={{"max-width": "370px"}} data-toggle="tooltip"
+                          data-placement="right" title={this.state.description}>{this.state.description}</span>
+                </span>
             </div>
         });
+        const options = {scalable: false, zoomable: false, title: false, toolbar: 10};
 
         return (
             <div className="jumbotron bg-light">
                 <div className="panel-body">
-                    <div className="row">
-                        {images}
-                    </div>
+                    <RcViewer options={options} ref='viewer'>
+                        <div className="row">
+                            {images}
+                        </div>
+                    </RcViewer>
                 </div>
             </div>
         );
