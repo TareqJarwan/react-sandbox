@@ -7,6 +7,7 @@ import Student from "./Student";
 import Attendance from "./Attendance";
 import Gallery from "./Gallery";
 import Video from "./Video";
+import Calendar from "./Calendar";
 
 class Dashboard extends Component {
     constructor() {
@@ -22,6 +23,7 @@ class Dashboard extends Component {
                 <div id="page-content-wrapper">
                     <Navbar/>
                     <div className="container-fluid my-4">
+                        <Route path="/dashboard" exact component={Calendar}/>
                         <Route path="/student" exact component={Student}/>
                         <Route path="/attendance" exact component={Attendance}/>
                         <Route path="/gallary" exact component={Gallery}/>
