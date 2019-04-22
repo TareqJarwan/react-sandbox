@@ -32,10 +32,10 @@ class ShowGallery extends Component {
 
     render() {
         const images = this.state.urls.map((url) => {
-            return <div className="col-sm-3 p-3" key={url}>
+            return <div className="col-sm-4 p-3" key={url}>
                 <img className="img-fluid image" src={url} alt={this.state.description}/>
                 <span className="description">
-                    <span className="d-inline-block text-truncate" style={{"max-width": "370px"}} data-toggle="tooltip"
+                    <span className="d-inline-block text-truncate" style={{"max-width": "500px"}} data-toggle="tooltip"
                           data-placement="right" title={this.state.description}>{this.state.description}</span>
                 </span>
             </div>
