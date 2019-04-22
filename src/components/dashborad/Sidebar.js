@@ -1,9 +1,12 @@
 import React from 'react';
+import logo from '../../assets/react.svg';
 
 const Sidebar = (props) => {
     return (
         <div className="bg-light border-right sticky-top" id="sidebar-wrapper">
-            <div className="sidebar-heading font-weight-bold">Edupan</div>
+            <a href='/' className="navbar-brand">
+                <img src={logo} className="image img-fluid center mx-4 mt-1" style={{'width': "21%"}} alt="logo"/>
+            </a>
             <div className="list-group list-group-flush">
                 <a href="/" className="list-group-item list-group-item-action bg-light">Dashboard</a>
                 <a href="/" className="list-group-item list-group-item-action bg-light">Shortcuts</a>
