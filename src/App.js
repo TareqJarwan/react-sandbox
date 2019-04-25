@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import Sidebar from "./components/dashborad/Sidebar";
 import NavBar from "./components/dashborad/NavBar";
 import Calendar from "./components/dashborad/Calendar";
@@ -25,10 +25,13 @@ class App extends Component {
                 <div id="page-content-wrapper">
                     <NavBar/>
                     <div className="container-fluid my-4">
-                        <Route path="/dashboard" component={Calendar}/>
-                        <Route path="/student" component={Student}/>
-                        <Route path="/attendance" component={Attendance}/>
-                        <Route path="/gallery" component={Gallery}/>
+                        <Switch>
+                            <Route path="/dashboard" component={Calendar}/>
+                            <Route path="/student" component={Student}/>
+                            <Route path="/attendance" component={Attendance}/>
+                            <Route path="/gallery" component={Gallery}/>
+                            <Redirect to="/dashboard"/>
+                        </Switch>
                     </div>
                 </div>
             </div>
@@ -39,20 +42,21 @@ class App extends Component {
                 <div id="page-content-wrapper">
                     <NavBar/>
                     <div className="container-fluid my-4">
-                        <Route path="/dashboard" component={Calendar}/>
-                        <Route path="/student" component={Student}/>
-                        <Route path="/attendance" component={Attendance}/>
-                        <Route path="/gallery" component={Gallery}/>
+                        <Switch>
+                            <Route path="/dashboard" component={Calendar}/>
+                            <Route path="/student" component={Student}/>
+                            <Route path="/attendance" component={Attendance}/>
+                            <Route path="/gallery" component={Gallery}/>
+                            <Redirect to="/dashboard"/>
+                        </Switch>
                     </div>
                 </div>
             </div>
         );
         return (
-            <BrowserRouter>
-                <Switch>
-                    {isAuthorized ? authLinks : guestLinks}
-                </Switch>
-            </BrowserRouter>
+            <div>
+                {isAuthorized ? authLinks : guestLinks}
+            </div>
         );
     }
 }

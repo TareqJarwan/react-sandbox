@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import TextFieldGroup from "../common/TextFieldGroup";
 import SelectListGroup from "../common/SelectListGroup";
+import * as actions from "../../store/actions/studentAction";
+import {connect} from "react-redux";
 
 class AddStudent extends Component {
     constructor(props) {
@@ -59,9 +61,10 @@ class AddStudent extends Component {
             sex: this.state.sex,
             class: this.state.class,
             grade: this.state.grade,
+            parents: []
         };
         console.log(studentData);
-        //this.props.createStudent(studentData, this.props.history);
+        this.props.createStudent(studentData);
     };
 
     render() {
@@ -220,4 +223,16 @@ class AddStudent extends Component {
     }
 }
 
-export default AddStudent;
+const mapStateToProps = state => {
+    return {
+        students: state.student.students
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        createStudent: (studentData) => dispatch(actions.addStudent(studentData))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddStudent);

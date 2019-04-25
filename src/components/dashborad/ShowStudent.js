@@ -1,29 +1,25 @@
-// https://www.npmjs.com/package/react-table
-
 import React, {Component} from 'react';
 import ReactTable from "react-table";
 import 'react-table/react-table.css';
 import SelectListGroup from "../common/SelectListGroup";
+import {connect} from "react-redux";
 
-class Table extends Component {
+import * as actions from "../../store/actions/studentAction";
+import {NavLink} from "react-router-dom";
+
+class ShowStudent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             posts: [],
-            admin: false,
+            admin: true,
             class: '0'
         }
     }
 
     componentDidMount() {
-        const url = "https://jsonplaceholder.typicode.com/posts";
-        fetch(url, {
-            method: "GET"
-        })
-            .then(res => res.json())
-            .then(posts => {
-                this.setState({posts: posts})
-            })
+
+        this.props.getStudents();
     }
 
     onChange = (e) => {
@@ -31,11 +27,13 @@ class Table extends Component {
     };
 
     deleteRow = (id) => {
-        const index = this.state.posts.findIndex(post => {
-            return post.id === id;
-        });
-        window.confirm('Are you sure?');
-        console.log(index);
+        if (window.confirm("Are you sure you want to delete?")) {
+            const index = this.props.students.findIndex(student => {
+                return student.id === id;
+            });
+            console.log(index);
+            this.props.deleteStudent(index);
+        }
     };
 
     render() {
@@ -44,29 +42,36 @@ class Table extends Component {
                 Header: "ID",
                 Footer: "ID",
                 accessor: "id",
-                style: {
-                    textAlign: "center"
-                },
-                width: 100,
-                maxWidth: 100,
-                minWidth: 100,
+                width: 200,
+                maxWidth: 200,
+                minWidth: 200,
                 filterable: true
             },
             {
-                Header: "Title",
-                Footer: "Title",
-                accessor: "title",
+                Header: "Name",
+                Footer: "Name",
                 Cell: props => {
                     return (
-                        <a href={"/student/show?id=" + props.original.id}>{props.original.title}</a>
+                        <NavLink
+                            to={"/student/show?id=" + props.original.id}>{props.original.fName} {props.original.lName}</NavLink>
                     )
                 },
                 filterable: true
             },
             {
-                Header: "Content",
-                Footer: "Content",
-                accessor: "body",
+                Header: "Class",
+                Footer: "Class",
+                Cell: props => {
+                    return (
+                        <span> {props.original.class.grade} {props.original.class.section}</span>
+                    )
+                },
+                filterable: true
+            },
+            {
+                Header: "Gender",
+                Footer: "Gender",
+                accessor: "sex",
                 filterable: true
             },
             {
@@ -126,11 +131,11 @@ class Table extends Component {
                     </form>
                 </div>
 
-                <ReactTable id="posts-table"
+                <ReactTable id="students-table"
                             lassName="m-5"
                             columns={columns}
                             defaultPageSize={5}
-                            data={this.state.posts}
+                            data={this.props.students}
                             noDataText="No data available in table"
                             filterAll/>
             </div>
@@ -138,4 +143,17 @@ class Table extends Component {
     }
 }
 
-export default Table;
+const mapStateToProps = state => {
+    return {
+        students: state.student.students
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getStudents: () => dispatch(actions.getStudents()),
+        deleteStudent: (id) => dispatch(actions.deleteStudent(id))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShowStudent);
