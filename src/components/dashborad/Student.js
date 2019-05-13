@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
 import AddStudent from "./AddStudent";
-import ShowStudent from "./ShowStudent";
+import ShowStudents from "./ShowStudents";
 
 class Student extends Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class Student extends Component {
                         tabId="1">
                         <Row>
                             <Col sm="12">
-                                <ShowStudent/>
+                                <ShowStudents/>
                             </Col>
                         </Row>
                     </TabPane>

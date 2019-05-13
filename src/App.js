@@ -7,6 +7,8 @@ import Calendar from "./components/dashborad/Calendar";
 import Student from "./components/dashborad/Student";
 import Attendance from "./components/dashborad/Attendance";
 import Gallery from "./components/dashborad/Gallery";
+import ShowStudent from "./components/dashborad/ShowStudent";
+import EditStudent from "./components/dashborad/EditStudent";
 
 class App extends Component {
     constructor() {
@@ -26,10 +28,12 @@ class App extends Component {
                     <NavBar/>
                     <div className="container-fluid my-4">
                         <Switch>
-                            <Route path="/dashboard" component={Calendar}/>
-                            <Route path="/student" component={Student}/>
-                            <Route path="/attendance" component={Attendance}/>
-                            <Route path="/gallery" component={Gallery}/>
+                            <Route path="/dashboard" exact component={Calendar}/>
+                            <Route path="/student" exact component={Student}/>
+                            <Route path="/attendance" exact component={Attendance}/>
+                            <Route path="/gallery" exact component={Gallery}/>
+                            <Route path="/student/show" exact component={ShowStudent}/>
+                            <Route path="/student/edit" exact component={EditStudent}/>
                             <Redirect to="/dashboard"/>
                         </Switch>
                     </div>
