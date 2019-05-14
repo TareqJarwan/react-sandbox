@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import queryString from 'query-string';
-import TextFieldGroup from "../common/TextFieldGroup";
-import SelectListGroup from "../common/SelectListGroup";
-import * as actions from "../../store/actions/studentAction";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+
+import TextFieldGroup from "../common/TextFieldGroup";
+import SelectListGroup from "../common/SelectListGroup";
+import * as studentActions from "../../store/actions/studentAction";
+import * as classActions from "../../store/actions/classAction";
 
 class EditStudent extends Component {
     constructor(props) {
@@ -14,27 +16,18 @@ class EditStudent extends Component {
             fName: "",
             lName: "",
             birthDate: "",
-            profilePictureURL: "https://static.thenounproject.com/png/35778-200.png",
             sex: "0",
             class: '0',
             grade: '0',
-            parents: [
-                {
-                    name: "",
-                    sex: "",
-                    title: "",
-                    email: "",
-                    mobile: "",
-                    relative: ""
-                }
-            ],
+            parents: [],
+            profilePictureURL: "https://static.thenounproject.com/png/35778-200.png",
+            classesObj: [{label: '* Select Class', value: 0}],
             errors: {}
         };
     }
 
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
-        console.log(this.state.sex);
     };
 
     onImageChange = (event, type) => {
@@ -55,6 +48,7 @@ class EditStudent extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        let params = queryString.parse(this.props.location.search);
         const studentData = {
             nationalNumber: this.state.nationalNumber,
             fName: this.state.fName,
@@ -64,31 +58,49 @@ class EditStudent extends Component {
             sex: this.state.sex,
             class: this.state.class,
             grade: this.state.grade,
-            parents: []
+            parents: this.state.parents
         };
         console.log(studentData);
-        this.props.createStudent(studentData);
+        this.props.updateStudent(params.id, studentData);
+        this.props.history.push('/student');
     };
 
     componentDidMount() {
         let params = queryString.parse(this.props.location.search);
         this.props.getStudent(params.id);
+        this.props.getClasses();
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
+        if (nextProps.classes) {
+            const classes = nextProps.classes;
+            let classesObj = [{label: '* Select Class', value: 0}];
+
+            for (let i = 0; i < classes.length; i++) {
+                classesObj.push({
+                    label: classes[i].grade + " - " + classes[i].section,
+                    value: classes[i].id
+                });
+            }
+
+            this.setState({
+                classesObj: classesObj
+            });
+        }
+
         if (nextProps.student) {
             const student = nextProps.student;
-            this.setState({
-                nationalNumber: student.nationalNumber,
-                fName: student.fName,
-                lName: student.lName,
-                birthDate: student.birthDate,
-                profilePictureURL: student.profilePictureURL,
-                sex: student.sex,
-                class: student.class.grade,
-                grade: student.class.section,
-            });
+            if (student.class) {
+                this.setState({
+                    nationalNumber: student.nationalNumber,
+                    fName: student.fName,
+                    lName: student.lName,
+                    birthDate: student.birthDate,
+                    profilePictureURL: student.profilePictureURL,
+                    sex: student.sex,
+                    class: student.class.id
+                })
+            }
         }
     }
 
@@ -100,28 +112,6 @@ class EditStudent extends Component {
             {label: 'Male', value: 'male'},
             {label: 'Female', value: 'female'},
             {label: 'Prefer Not To Say', value: 'Prefer not to say'}
-        ];
-
-        const grades = [
-            {label: '* Grade', value: 0},
-            {label: 'A', value: 'a'},
-            {label: 'B', value: 'b'},
-            {label: 'C', value: 'c'},
-            {label: 'D', value: 'd'},
-        ];
-
-        const classes = [
-            {label: '* Class', value: 0},
-            {label: 'First', value: 'First'},
-            {label: 'Second', value: 'Second'},
-            {label: 'Third', value: 'Third'},
-            {label: 'Forth', value: 'Forth'},
-            {label: 'Fifth', value: 'Fifth'},
-            {label: 'Sixth', value: 'Sixth'},
-            {label: 'Seventh', value: 'Seventh'},
-            {label: 'Eighth', value: 'Eighth'},
-            {label: 'Ninth', value: 'Ninth'},
-            {label: 'Tenth', value: 'Tenth'},
         ];
 
         return (
@@ -211,18 +201,7 @@ class EditStudent extends Component {
                                                          value={this.state.class}
                                                          onChange={this.onChange}
                                                          error={errors.class}
-                                                         options={classes}/>
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label htmlFor="example-tel-input" className="col-2 col-form-label">Grade</label>
-                                    <div className="col-10">
-                                        <SelectListGroup placeholder="Grade"
-                                                         name="grade"
-                                                         value={this.state.grade}
-                                                         onChange={this.onChange}
-                                                         error={errors.grade}
-                                                         options={grades}/>
+                                                         options={this.state.classesObj}/>
                                     </div>
                                 </div>
                                 <div className="form-group row">
@@ -259,14 +238,16 @@ class EditStudent extends Component {
 
 const mapStateToProps = state => {
     return {
-        student: state.student.student
+        student: state.student.student,
+        classes: state.class.classes
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getStudent: (id) => dispatch(actions.getStudent(id)),
-        updateStudent: (studentData) => dispatch(actions.addStudent(studentData))
+        getStudent: (id) => dispatch(studentActions.getStudent(id)),
+        updateStudent: (id, studentData) => dispatch(studentActions.updateStudent(id, studentData)),
+        getClasses: () => dispatch(classActions.getClasses())
     }
 };
 

@@ -1,4 +1,12 @@
-import {ADD_STUDENT, CLEAR_ERRORS, DELETE_STUDENT, GET_ERRORS, GET_STUDENT, GET_STUDENTS} from "./actionTypes";
+import {
+    ADD_STUDENT,
+    CLEAR_ERRORS,
+    DELETE_STUDENT,
+    GET_ERRORS,
+    GET_STUDENT,
+    GET_STUDENTS,
+    UPDATE_STUDENT
+} from "./actionTypes";
 import axios from "../../axios";
 
 // Add student
@@ -8,6 +16,24 @@ export const addStudent = studentData => dispatch => {
         .then(res =>
             dispatch({
                 type: ADD_STUDENT,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+};
+
+// Update student
+export const updateStudent = (id, studentData) => dispatch => {
+    axios
+        .post(`student/update/${id}`, studentData)
+        .then(res =>
+            dispatch({
+                type: UPDATE_STUDENT,
                 payload: res.data
             })
         )

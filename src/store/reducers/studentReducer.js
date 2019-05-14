@@ -1,4 +1,11 @@
-import {ADD_STUDENT, DELETE_STUDENT, GET_STUDENT, GET_STUDENTS, STUDENT_LOADING} from '../actions/actionTypes';
+import {
+    ADD_STUDENT,
+    DELETE_STUDENT,
+    GET_STUDENT,
+    GET_STUDENTS,
+    STUDENT_LOADING,
+    UPDATE_STUDENT
+} from '../actions/actionTypes';
 import {updateObject} from "../../shared/utility";
 
 const initialState = {
@@ -31,13 +38,19 @@ function addStudent(state, action) {
     });
 }
 
+function updateStudent(state, action) {
+    return updateObject(state, {
+        students: [action.payload, ...state.students],
+    });
+}
+
 function deleteStudent(state, action) {
     return updateObject(state, {
         students: state.students.filter(student => student._id !== action.payload),
     });
 }
 
-const reducer = (state = initialState, action) => {
+const studentReducer = (state = initialState, action) => {
     switch (action.type) {
         case STUDENT_LOADING:
             return studentLoading(state, action);
@@ -47,6 +60,8 @@ const reducer = (state = initialState, action) => {
             return getStudent(state, action);
         case ADD_STUDENT:
             return addStudent(state, action);
+        case UPDATE_STUDENT:
+            return updateStudent(state, action);
         case DELETE_STUDENT:
             return deleteStudent(state, action);
         default:
@@ -54,4 +69,4 @@ const reducer = (state = initialState, action) => {
     }
 };
 
-export default reducer;
+export default studentReducer;
