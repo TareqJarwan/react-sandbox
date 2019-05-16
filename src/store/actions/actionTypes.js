@@ -11,5 +11,18 @@ export const GET_CLASS = 'GET_CLASS';
 export const ADD_CLASS = 'ADD_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
 
+export const EXAM_LOADING = 'EXAM_LOADING';
+export const GET_EXAMS = 'GET_EXAMS';
+export const GET_EXAM = 'GET_EXAM';
+export const ADD_EXAM = 'ADD_EXAM';
+export const UPDATE_EXAM = 'UPDATE_EXAM';
+export const DELETE_EXAM = 'DELETE_EXAM';
+
+export const MARK_LOADING = 'MARK_LOADING';
+export const GET_MARKS = 'GET_MARKS';
+export const GET_MARK = 'GET_MARK';
+export const ADD_MARK = 'ADD_MARK';
+export const DELETE_MARK = 'DELETE_MARK';
+
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';

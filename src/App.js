@@ -9,6 +9,8 @@ import Attendance from "./components/dashborad/Attendance";
 import Gallery from "./components/dashborad/Gallery";
 import ShowStudent from "./components/dashborad/ShowStudent";
 import EditStudent from "./components/dashborad/EditStudent";
+import Marks from "./components/dashborad/Marks";
+import ShowMarkTable from "./components/dashborad/ShowMarkTable";
 
 class App extends Component {
     constructor() {
@@ -31,7 +33,11 @@ class App extends Component {
                             <Route path="/dashboard" exact component={Calendar}/>
                             <Route path="/student" exact component={Student}/>
                             <Route path="/attendance" exact component={Attendance}/>
+                            <Route path="/marks" exact component={Marks}/>
+                            <Route path="/marks/show" exact component={ShowMarkTable}/>
+
                             <Route path="/gallery" exact component={Gallery}/>
+
                             <Route path="/student/show" exact component={ShowStudent}/>
                             <Route path="/student/edit" exact component={EditStudent}/>
                             <Redirect to="/dashboard"/>
