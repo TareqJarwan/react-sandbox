@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import queryString from "query-string";
+import queryString from "query-string/index";
 import {Link} from "react-router-dom";
 import ReactTable from "react-table";
 
-import * as markActions from "../../store/actions/markActions";
+import * as markActions from "../../../store/actions/markActions";
 
 import 'react-table/react-table.css';
 

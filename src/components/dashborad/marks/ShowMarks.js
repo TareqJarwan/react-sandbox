@@ -3,7 +3,7 @@ import ReactTable from "react-table";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 
-import * as markActions from "../../store/actions/markActions";
+import * as markActions from "../../../store/actions/markActions";
 
 import 'react-table/react-table.css';
 
@@ -71,7 +71,7 @@ class ShowMarks extends Component {
                 Cell: props => {
                     let status = props.original.exam.status === "قيد التصحيح";
                     let x = status ?
-                        <a href={"/marks/add?id=" + props.original.id} className="btn btn-info m-1">
+                        <a href={"/marks/correct?id=" + props.original.id} className="btn btn-info m-1">
                             <i className="fa fa-check"/> Correct
                         </a>
                         :

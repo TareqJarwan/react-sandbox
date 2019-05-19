@@ -9,8 +9,9 @@ import Attendance from "./components/dashborad/Attendance";
 import Gallery from "./components/dashborad/Gallery";
 import ShowStudent from "./components/dashborad/ShowStudent";
 import EditStudent from "./components/dashborad/EditStudent";
-import Marks from "./components/dashborad/Marks";
-import ShowMarkTable from "./components/dashborad/ShowMarkTable";
+import Marks from "./components/dashborad/marks/Marks";
+import ShowMarkTable from "./components/dashborad/marks/ShowMarkTable";
+import CorrectMarks from "./components/dashborad/marks/CorrectMarks";
 
 class App extends Component {
     constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
                             <Route path="/attendance" exact component={Attendance}/>
                             <Route path="/marks" exact component={Marks}/>
                             <Route path="/marks/show" exact component={ShowMarkTable}/>
+                            <Route path="/marks/correct" exact component={CorrectMarks}/>
 
                             <Route path="/gallery" exact component={Gallery}/>
 
