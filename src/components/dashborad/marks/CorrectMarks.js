@@ -46,6 +46,10 @@ class CorrectMarks extends Component {
         }
     }
 
+    onCellChange = (e, studentID, changedField) => {
+        console.log(changedField)
+    };
+
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     };
@@ -63,7 +67,7 @@ class CorrectMarks extends Component {
                     return (
                         <TextFieldGroup
                             type="text"
-                            onChange={this.onChange}
+                            onChange={(event) => this.onCellChange(event, props.original.id, "score")}
                             value={props.original.actualScore}
                             name="actualScore"/>
                     )
@@ -79,7 +83,7 @@ class CorrectMarks extends Component {
                     return (
                         <TextFieldGroup
                             type="text"
-                            onChange={this.onChange}
+                            onChange={(event) => this.onCellChange(event, props.original.id, "comment")}
                             value={props.original.comment}
                             name="comment"/>
                     )
