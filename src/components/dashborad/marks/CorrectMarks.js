@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 
 import * as markActions from "../../../store/actions/markActions";
 import TextFieldGroup from "../../common/TextFieldGroup";
+import {updateObject} from "../../../shared/utility";
 
 class CorrectMarks extends Component {
     constructor(props) {
@@ -16,7 +17,8 @@ class CorrectMarks extends Component {
             subject: '',
             exam: '',
             marks: [],
-        }
+            studentsMarks: {}
+        };
     }
 
     componentDidMount() {
@@ -40,18 +42,36 @@ class CorrectMarks extends Component {
             }
             this.setState({
                 exam: mark.title,
+                studentsMarks: mark.studentsMarks,
                 marks: Object.keys(mark.studentsMarks).map(i => mark.studentsMarks[i])
             });
-            console.log(mark)
         }
     }
 
-    onCellChange = (e, studentID, changedField) => {
-        console.log(changedField)
-    };
+    inputChangedHandler = (e, studentID, changedField) => {
+        let updatedFormElement, updatedOrderForm = "";
+        if (changedField === "comment") {
+            updatedFormElement = updateObject(this.state.studentsMarks[studentID], {
+                comment: e.target.value
+            });
+            updatedOrderForm = updateObject(this.state.studentsMarks, {
+                [studentID]: updatedFormElement
+            });
+        } else if (changedField === "score") {
+            updatedFormElement = updateObject(this.state.studentsMarks[studentID], {
+                actualScore: e.target.value
+            });
+            updatedOrderForm = updateObject(this.state.studentsMarks, {
+                [studentID]: updatedFormElement
+            });
+        }
 
-    onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({
+            studentsMarks: updatedOrderForm,
+            marks: Object.keys(updatedOrderForm).map(i => updatedOrderForm[i])
+        });
+
+        // TODO solve the issue regarding losing focus
     };
 
     render() {
@@ -67,9 +87,9 @@ class CorrectMarks extends Component {
                     return (
                         <TextFieldGroup
                             type="text"
-                            onChange={(event) => this.onCellChange(event, props.original.id, "score")}
+                            onChange={(event) => this.inputChangedHandler(event, props.original.id, "score")}
                             value={props.original.actualScore}
-                            name="actualScore"/>
+                            name={"actualScore" + props.original.id}/>
                     )
                 },
                 accessor: "body",
@@ -83,9 +103,9 @@ class CorrectMarks extends Component {
                     return (
                         <TextFieldGroup
                             type="text"
-                            onChange={(event) => this.onCellChange(event, props.original.id, "comment")}
+                            onChange={(event) => this.inputChangedHandler(event, props.original.id, "comment")}
                             value={props.original.comment}
-                            name="comment"/>
+                            name={"comment" + props.original.id}/>
                     )
                 },
                 sortable: false,
