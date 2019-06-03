@@ -19,6 +19,8 @@ const Sidebar = () => {
                           className="list-group-item list-group-item-action bg-light">Manage Marks</Link>
                     <Link to="/attendance"
                           className="list-group-item list-group-item-action bg-light">Attendance</Link>
+                    <Link to="/table"
+                          className="list-group-item list-group-item-action bg-light">Table</Link>
                     <Link to="/gallery"
                           className="list-group-item list-group-item-action bg-light">Gallery</Link>
                 </div>

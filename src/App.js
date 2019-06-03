@@ -12,6 +12,8 @@ import EditStudent from "./components/dashborad/EditStudent";
 import Marks from "./components/dashborad/marks/Marks";
 import ShowMarkTable from "./components/dashborad/marks/ShowMarkTable";
 import CorrectMarks from "./components/dashborad/marks/CorrectMarks";
+import Table from "./components/dashborad/table/Table";
+import ShowTable from "./components/dashborad/table/ShowTable";
 
 class App extends Component {
     constructor() {
@@ -39,6 +41,9 @@ class App extends Component {
                             <Route path="/marks/correct" exact component={CorrectMarks}/>
 
                             <Route path="/gallery" exact component={Gallery}/>
+                            <Route path="/table" exact component={Table}/>
+                            <Route path="/table/build" exact component={ShowTable}/>
+
 
                             <Route path="/student/show" exact component={ShowStudent}/>
                             <Route path="/student/edit" exact component={EditStudent}/>
