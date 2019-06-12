@@ -225,7 +225,7 @@ class AddStudent extends Component {
 
 const mapStateToProps = state => {
     return {
-        students: state.student.students
+        students: state.student.students,
     }
 };
 
