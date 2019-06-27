@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import './App.css';
 import {Redirect, Route, Switch} from "react-router-dom";
+import {IntlProvider} from "react-intl";
+import {connect} from "react-redux";
+
 import Sidebar from "./components/dashborad/Sidebar";
 import NavBar from "./components/dashborad/NavBar";
 import Calendar from "./components/dashborad/Calendar";
@@ -15,6 +17,9 @@ import CorrectMarks from "./components/dashborad/marks/CorrectMarks";
 import Table from "./components/dashborad/table/Table";
 import ShowTable from "./components/dashborad/table/ShowTable";
 
+import messages from "./messages";
+import './App.css';
+
 class App extends Component {
     constructor() {
         super();
@@ -25,6 +30,8 @@ class App extends Component {
 
     render() {
         const {isAuthorized} = this.state;
+        const {lang} = this.props;
+
         const authLinks = (
             <div className="d-flex" id="wrapper">
                 <Sidebar/>
@@ -71,11 +78,20 @@ class App extends Component {
             </div>
         );
         return (
-            <div>
-                {isAuthorized ? authLinks : guestLinks}
-            </div>
+            <IntlProvider locale={lang} messages={messages[lang]}>
+                <div>
+                    {isAuthorized ? authLinks : guestLinks}
+                </div>
+            </IntlProvider>
         );
     }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+    return {
+        lang: state.locale.lang
+    }
+};
+
+export default connect(mapStateToProps)(App);

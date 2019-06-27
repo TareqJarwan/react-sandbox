@@ -26,3 +26,4 @@ export const DELETE_MARK = 'DELETE_MARK';
 
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const LOCALE_SET = "LOCALE_SET";
