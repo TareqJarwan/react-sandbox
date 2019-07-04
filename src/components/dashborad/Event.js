@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
 
-import ShowGallery from "./ShowGallery";
+import ShowEvents from "./ShowEvents";
 import Video from "./Video";
 import AddEvent from "./AddEvent";
 
-class Gallery extends Component {
+class Event extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,7 +50,7 @@ class Gallery extends Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <ShowGallery/>
+                                <ShowEvents/>
                             </Col>
                         </Row>
                     </TabPane>
@@ -74,4 +74,4 @@ class Gallery extends Component {
     }
 }
 
-export default Gallery;
+export default Event;

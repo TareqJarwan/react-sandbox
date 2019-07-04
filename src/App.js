@@ -8,7 +8,7 @@ import NavBar from "./components/dashborad/NavBar";
 import Calendar from "./components/dashborad/Calendar";
 import Student from "./components/dashborad/Student";
 import Attendance from "./components/dashborad/Attendance";
-import Gallery from "./components/dashborad/Gallery";
+import Event from "./components/dashborad/Event";
 import ShowStudent from "./components/dashborad/ShowStudent";
 import EditStudent from "./components/dashborad/EditStudent";
 import Marks from "./components/dashborad/marks/Marks";
@@ -19,6 +19,7 @@ import ShowTable from "./components/dashborad/table/ShowTable";
 
 import messages from "./messages";
 import './App.css';
+import ShowEvent from "./components/dashborad/ShowEvent";
 
 class App extends Component {
     constructor() {
@@ -47,7 +48,8 @@ class App extends Component {
                             <Route path="/marks/show" exact component={ShowMarkTable}/>
                             <Route path="/marks/correct" exact component={CorrectMarks}/>
 
-                            <Route path="/gallery" exact component={Gallery}/>
+                            <Route path="/event" exact component={Event}/>
+                            <Route path="/event/show" exact component={ShowEvent}/>
                             <Route path="/table" exact component={Table}/>
                             <Route path="/table/build" exact component={ShowTable}/>
 
@@ -70,7 +72,7 @@ class App extends Component {
                             <Route path="/dashboard" component={Calendar}/>
                             <Route path="/student" component={Student}/>
                             <Route path="/attendance" component={Attendance}/>
-                            <Route path="/gallery" component={Gallery}/>
+                            <Route path="/gallery" component={Event}/>
                             <Redirect to="/dashboard"/>
                         </Switch>
                     </div>
