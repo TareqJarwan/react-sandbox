@@ -1,4 +1,13 @@
-import {ADD_EVENT, CLEAR_ERRORS, DELETE_EVENT, GET_ERRORS, GET_EVENT, GET_EVENTS, UPDATE_EVENT} from "./actionTypes";
+import {
+    ADD_EVENT,
+    CLEAR_ERRORS,
+    DELETE_EVENT,
+    EVENT_LOADING,
+    GET_ERRORS,
+    GET_EVENT,
+    GET_EVENTS,
+    UPDATE_EVENT
+} from "./actionTypes";
 import axios from "../../axios";
 
 // Add event
@@ -39,6 +48,7 @@ export const updateEvent = (id, eventData) => dispatch => {
 
 // Get Events
 export const getEvents = () => dispatch => {
+    dispatch(startLoadingEvent());
     axios
         .get('event/get')
         .then(res =>
@@ -89,6 +99,12 @@ export const deleteEvent = id => dispatch => {
                 payload: err.response.data
             })
         );
+};
+
+export const startLoadingEvent = () => {
+    return {
+        type: EVENT_LOADING,
+    }
 };
 
 // Clear errors

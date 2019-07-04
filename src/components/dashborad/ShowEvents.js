@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import ReactTable from "react-table";
 
 import * as eventActions from "../../store/actions/eventActions";
+import Spinner from "../common/Spinner";
 
 class ShowEvents extends Component {
     constructor(props) {
@@ -22,9 +23,9 @@ class ShowEvents extends Component {
     };
 
     deleteRow = (id) => {
-        if (window.confirm("Are you sure you want to delete?")) {
-            const index = this.props.events.findIndex(student => {
-                return student.id === id;
+        if (window.confirm("Are you sure you want to delete this event?")) {
+            const index = this.props.students.findIndex(event => {
+                return event.id === id;
             });
             console.log(index);
             this.props.deleteStudent(index);
@@ -32,6 +33,7 @@ class ShowEvents extends Component {
     };
 
     render() {
+        const {events, loading} = this.props;
         const columns = [
             {
                 Header: "Name",
@@ -84,13 +86,14 @@ class ShowEvents extends Component {
         return (
             <div className="jumbotron bg-light">
                 <div className="panel-body mb-3">
-                    <ReactTable id="students-table"
-                                lassName="m-5"
-                                columns={columns}
-                                defaultPageSize={5}
-                                data={this.props.events}
-                                noDataText="No data available in table"
-                                filterAll/>
+                    {loading ? <Spinner loading={loading}/> :
+                        <ReactTable id="students-table"
+                                    columns={columns}
+                                    defaultPageSize={5}
+                                    data={events}
+                                    noDataText="No data available in table"
+                                    filterAll/>
+                    }
                 </div>
             </div>
         );
@@ -99,7 +102,8 @@ class ShowEvents extends Component {
 
 const mapStateToProps = state => {
     return {
-        events: state.event.events
+        events: state.event.events,
+        loading: state.event.loading
     }
 };
 

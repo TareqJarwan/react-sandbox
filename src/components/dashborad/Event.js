@@ -3,7 +3,6 @@ import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
 
 import ShowEvents from "./ShowEvents";
-import Video from "./Video";
 import AddEvent from "./AddEvent";
 
 class Event extends Component {
@@ -35,12 +34,6 @@ class Event extends Component {
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '2'})}
                                  onClick={() => this.toggle('2')}>
-                            <i className="fa fa-list"/> Video
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className={classnames({active: this.state.activeTab === '3'})}
-                                 onClick={() => this.toggle('3')}>
                             <i className="fa fa-plus-circle"/> Add New Event
                         </NavLink>
                     </NavItem>
@@ -55,13 +48,6 @@ class Event extends Component {
                         </Row>
                     </TabPane>
                     <TabPane tabId="2">
-                        <Row>
-                            <Col sm="12">
-                                <Video/>
-                            </Col>
-                        </Row>
-                    </TabPane>
-                    <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
                                 <AddEvent/>
