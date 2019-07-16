@@ -4,6 +4,7 @@ import classnames from "classnames";
 
 import ShowEvents from "./ShowEvents";
 import AddEvent from "./AddEvent";
+import Video from "./Video";
 
 class Event extends Component {
     constructor(props) {
@@ -37,13 +38,19 @@ class Event extends Component {
                             <i className="fa fa-plus-circle"/> Add New Event
                         </NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink className={classnames({active: this.state.activeTab === '3'})}
+                                 onClick={() => this.toggle('3')}>
+                            <i className="fa fa-plus-circle"/> Video
+                        </NavLink>
+                    </NavItem>
                 </Nav>
                 <TabContent
                     activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <ShowEvents/>
+                                {/*<ShowEvents/>*/}
                             </Col>
                         </Row>
                     </TabPane>
@@ -51,6 +58,13 @@ class Event extends Component {
                         <Row>
                             <Col sm="12">
                                 <AddEvent/>
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="3">
+                        <Row>
+                            <Col sm="12">
+                                <Video/>
                             </Col>
                         </Row>
                     </TabPane>
