@@ -3,12 +3,15 @@ import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
 import AddStudent from "./AddStudent";
 import ShowStudents from "./ShowStudents";
+import ErrorBoundary from "../common/ErrorBoundary";
 
 class Student extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
+            error: null,
+            errorInfo: null
         }
     }
 
@@ -20,7 +23,20 @@ class Student extends Component {
         }
     };
 
+    componentDidCatch(error, errorInfo) {
+        this.setState({
+            error: error,
+            errorInfo: errorInfo
+        })
+    }
+
     render() {
+        const {error, errorInfo} = this.state;
+
+        if (error) {
+            return <ErrorBoundary error={error} errorInfo={errorInfo}/>
+        }
+
         return (
             <div>
                 <Nav tabs>

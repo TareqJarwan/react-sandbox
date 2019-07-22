@@ -14,6 +14,7 @@ const TagsInputField = ({tags, suggestions, handleDelete, handleAddition}) => {
         <div>
             <ReactTags
                 tags={tags}
+                allowDragDrop={false}
                 suggestions={suggestions}
                 delimiters={delimiters}
                 handleDelete={handleDelete}
