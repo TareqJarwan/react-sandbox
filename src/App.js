@@ -20,6 +20,7 @@ import ShowTable from "./components/dashborad/table/ShowTable";
 import messages from "./messages";
 import './App.css';
 import ShowEvent from "./components/dashborad/ShowEvent";
+import Class from "./components/dashborad/class/Class";
 
 class App extends Component {
     constructor() {
@@ -31,10 +32,10 @@ class App extends Component {
 
     render() {
         const {isAuthorized} = this.state;
-        const {lang} = this.props;
+        const {lang, direction} = this.props;
 
         const authLinks = (
-            <div className="d-flex" id="wrapper">
+            <div className="d-flex" id="wrapper" dir={direction}>
                 <Sidebar/>
 
                 <div id="page-content-wrapper">
@@ -49,6 +50,7 @@ class App extends Component {
                             <Route path="/marks/correct" exact component={CorrectMarks}/>
 
                             <Route path="/event" exact component={Event}/>
+                            <Route path="/class" exact component={Class}/>
                             <Route path="/event/show" exact component={ShowEvent}/>
                             <Route path="/table" exact component={Table}/>
                             <Route path="/table/build" exact component={ShowTable}/>
@@ -92,7 +94,9 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        lang: state.locale.lang
+        lang: state.locale.lang,
+        direction: state.locale.direction,
+
     }
 };
 
