@@ -17,22 +17,20 @@ import CorrectMarks from "./components/dashborad/marks/CorrectMarks";
 import Table from "./components/dashborad/table/Table";
 import ShowTable from "./components/dashborad/table/ShowTable";
 
-import messages from "./messages";
-import './App.css';
 import ShowEvent from "./components/dashborad/ShowEvent";
 import Class from "./components/dashborad/class/Class";
+import SignIn from "./components/dashborad/SignIn";
+import messages from "./messages";
+import './App.css';
 
 class App extends Component {
     constructor() {
         super();
-        this.state = {
-            isAuthorized: true
-        }
+        this.state = {}
     }
 
     render() {
-        const {isAuthorized} = this.state;
-        const {lang, direction} = this.props;
+        const {lang, direction, isAuthorized} = this.props;
 
         const authLinks = (
             <div className="d-flex" id="wrapper" dir={direction}>
@@ -71,16 +69,15 @@ class App extends Component {
                     <NavBar/>
                     <div className="container-fluid my-4">
                         <Switch>
-                            <Route path="/dashboard" component={Calendar}/>
-                            <Route path="/student" component={Student}/>
-                            <Route path="/attendance" component={Attendance}/>
-                            <Route path="/gallery" component={Event}/>
-                            <Redirect to="/dashboard"/>
+                            <Route path="/signIn" component={SignIn}/>
+                            <Redirect to="/signIn"/>
                         </Switch>
                     </div>
                 </div>
             </div>
         );
+
+        console.log(this.props.firebase);
         return (
             <IntlProvider locale={lang} messages={messages[lang]}>
                 <div>
@@ -96,7 +93,8 @@ const mapStateToProps = (state) => {
     return {
         lang: state.locale.lang,
         direction: state.locale.direction,
-
+        firebase:state.firebase,
+        isAuthorized: state.firebase.auth.uid !== null,
     }
 };
 

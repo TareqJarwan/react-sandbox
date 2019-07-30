@@ -7,7 +7,6 @@ import * as actions from "../../../store/actions/classAction";
 import Button from "../../common/Button";
 import DatePickerInputField from "../../common/DatePickerInputField";
 import PhoneInputField from "../../common/PhoneInputField";
-import TagsInputField from "../../common/TagsInputField";
 
 class AddClass extends Component {
     constructor() {
@@ -144,11 +143,11 @@ class AddClass extends Component {
                                         <FormattedMessage id="class.phoneNumber" defaultMessage="Phone Number"/>
                                     </label>
                                     <div className="col-9">
-                                        <TagsInputField
+                                        {/*<TagsInputField
                                             tags={this.state.tags}
                                             handleAddition={this.handleAddTag}
                                             handleDelete={this.handleDeleteTag}
-                                            suggestions={this.state.suggestions}/>
+                                            suggestions={this.state.suggestions}/>*/}
                                     </div>
                                 </div>
                                 <div className="form-group row">
