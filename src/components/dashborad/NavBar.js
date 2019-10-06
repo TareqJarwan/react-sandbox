@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button className="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse"

@@ -5,6 +5,7 @@ import classnames from "classnames";
 import ShowGallery from "./ShowGallery";
 import Video from "./Video";
 import AddEvent from "./AddEvent";
+import ModalTest from "./ModalTest";
 
 class Gallery extends Component {
     constructor(props) {
@@ -44,6 +45,12 @@ class Gallery extends Component {
                             <i className="fa fa-plus-circle"/> Add New Event
                         </NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink className={classnames({active: this.state.activeTab === '4'})}
+                                 onClick={() => this.toggle('4')}>
+                            <i className="fa fa-plus-circle"/> Modal Test
+                        </NavLink>
+                    </NavItem>
                 </Nav>
                 <TabContent
                     activeTab={this.state.activeTab}>
@@ -65,6 +72,13 @@ class Gallery extends Component {
                         <Row>
                             <Col sm="12">
                                 <AddEvent/>
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="4">
+                        <Row>
+                            <Col sm="12">
+                                <ModalTest/>
                             </Col>
                         </Row>
                     </TabPane>

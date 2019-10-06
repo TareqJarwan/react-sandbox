@@ -5,13 +5,13 @@ class Video extends Component {
         super(props);
         this.state = {
             urls: [
+                /*"//www.youtube.com/embed/KpllAjxOIUU",
                 "//www.youtube.com/embed/KpllAjxOIUU",
                 "//www.youtube.com/embed/KpllAjxOIUU",
                 "//www.youtube.com/embed/KpllAjxOIUU",
                 "//www.youtube.com/embed/KpllAjxOIUU",
                 "//www.youtube.com/embed/KpllAjxOIUU",
-                "//www.youtube.com/embed/KpllAjxOIUU",
-                "//www.youtube.com/embed/KpllAjxOIUU",
+                "//www.youtube.com/embed/KpllAjxOIUU",*/
             ]
         }
     }
