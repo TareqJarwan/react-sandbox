@@ -8,6 +8,7 @@ import markReducer from "./markReducer";
 import localeReducer from "./localeReducer";
 import eventReducer from "./eventReducer";
 import authReducer from "./authReducer";
+import flashMessageReducer from "./flashMessagesReducer";
 
 export default combineReducers({
     auth: authReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
     mark: markReducer,
     event: eventReducer,
     locale: localeReducer,
+    flashMessage: flashMessageReducer,
     firebase: firebaseReducer
 });

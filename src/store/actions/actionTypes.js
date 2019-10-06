@@ -34,3 +34,6 @@ export const UPDATE_EVENT = 'UPDATE_EVENT';
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const LOCALE_SET = "LOCALE_SET";
+
+export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
+export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';

@@ -3,6 +3,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import {IntlProvider} from "react-intl";
 import {connect} from "react-redux";
 
+import FlashMessagesList from './components/common/FlashMessagesList';
 import Sidebar from "./components/dashborad/Sidebar";
 import NavBar from "./components/dashborad/NavBar";
 import Calendar from "./components/dashborad/Calendar";
@@ -30,8 +31,8 @@ class App extends Component {
     }
 
     render() {
-        const {lang, direction, isAuthorized} = this.props;
-
+        const {lang, direction, isAuthorized, enabled, flashMessages} = this.props;
+        console.log(flashMessages)
         const authLinks = (
             <div className="d-flex" id="wrapper" dir={direction}>
                 <Sidebar/>
@@ -40,23 +41,26 @@ class App extends Component {
                     <NavBar/>
                     <div className="container-fluid my-4">
                         <Switch>
-                            <Route path="/dashboard" exact component={Calendar}/>
-                            <Route path="/student" exact component={Student}/>
-                            <Route path="/attendance" exact component={Attendance}/>
-                            <Route path="/marks" exact component={Marks}/>
-                            <Route path="/marks/show" exact component={ShowMarkTable}/>
-                            <Route path="/marks/correct" exact component={CorrectMarks}/>
+                            <div className="jumbotron bg-light">
+                                {enabled ? <FlashMessagesList messages={flashMessages}/> : null}
+                                <Route path="/dashboard" exact component={Calendar}/>
+                                <Route path="/student" exact component={Student}/>
+                                <Route path="/attendance" exact component={Attendance}/>
+                                <Route path="/marks" exact component={Marks}/>
+                                <Route path="/marks/show" exact component={ShowMarkTable}/>
+                                <Route path="/marks/correct" exact component={CorrectMarks}/>
 
-                            <Route path="/event" exact component={Event}/>
-                            <Route path="/class" exact component={Class}/>
-                            <Route path="/event/show" exact component={ShowEvent}/>
-                            <Route path="/table" exact component={Table}/>
-                            <Route path="/table/build" exact component={ShowTable}/>
+                                <Route path="/event" exact component={Event}/>
+                                <Route path="/class" exact component={Class}/>
+                                <Route path="/event/show" exact component={ShowEvent}/>
+                                <Route path="/table" exact component={Table}/>
+                                <Route path="/table/build" exact component={ShowTable}/>
 
 
-                            <Route path="/student/show" exact component={ShowStudent}/>
-                            <Route path="/student/edit" exact component={EditStudent}/>
-                            <Redirect to="/dashboard"/>
+                                <Route path="/student/show" exact component={ShowStudent}/>
+                                <Route path="/student/edit" exact component={EditStudent}/>
+                                <Redirect to="/dashboard"/>
+                            </div>
                         </Switch>
                     </div>
                 </div>
@@ -77,7 +81,6 @@ class App extends Component {
             </div>
         );
 
-        console.log(this.props.firebase);
         return (
             <IntlProvider locale={lang} messages={messages[lang]}>
                 <div>
@@ -93,7 +96,9 @@ const mapStateToProps = (state) => {
     return {
         lang: state.locale.lang,
         direction: state.locale.direction,
-        firebase:state.firebase,
+        firebase: state.firebase,
+        enabled: state.flashMessage.enabled,
+        flashMessages: state.flashMessage.flashMessages,
         isAuthorized: state.firebase.auth.uid !== null,
     }
 };
