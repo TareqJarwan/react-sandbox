@@ -4,7 +4,7 @@ import axios from "../../axios";
 // Add class
 export const addClass = classData => dispatch => {
     axios
-        .post('class/add', classData)
+        .post('class/add', [classData])
         .then(res =>
             dispatch({
                 type: ADD_CLASS,
@@ -14,7 +14,7 @@ export const addClass = classData => dispatch => {
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
-                payload: err.response.data
+                payload: err.response
             })
         )
 };

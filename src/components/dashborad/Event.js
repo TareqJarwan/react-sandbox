@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from "classnames";
 
-import ShowGallery from "./ShowGallery";
-import Video from "./Video";
+import ShowEvents from "./ShowEvents";
 import AddEvent from "./AddEvent";
 import ModalTest from "./ModalTest";
+import Video from "./Video";
 
-class Gallery extends Component {
+class Event extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,13 +36,13 @@ class Gallery extends Component {
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '2'})}
                                  onClick={() => this.toggle('2')}>
-                            <i className="fa fa-list"/> Video
+                            <i className="fa fa-plus-circle"/> Add New Event
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '3'})}
                                  onClick={() => this.toggle('3')}>
-                            <i className="fa fa-plus-circle"/> Add New Event
+                            <i className="fa fa-plus-circle"/> Video
                         </NavLink>
                     </NavItem>
                     <NavItem>
@@ -57,20 +57,21 @@ class Gallery extends Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <ShowGallery/>
+                                {/*<ShowEvents/>*/}
                             </Col>
                         </Row>
                     </TabPane>
                     <TabPane tabId="2">
                         <Row>
                             <Col sm="12">
-                                <Video/>
+                                <AddEvent/>
                             </Col>
                         </Row>
                     </TabPane>
                     <TabPane tabId="3">
                         <Row>
                             <Col sm="12">
+                                <Video/>
                                 <AddEvent/>
                             </Col>
                         </Row>
@@ -88,4 +89,4 @@ class Gallery extends Component {
     }
 }
 
-export default Gallery;
+export default Event;

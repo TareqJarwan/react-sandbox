@@ -1,6 +1,19 @@
 import React, {Component} from 'react';
+import ReactFlagsSelect from 'react-flags-select';
+import 'react-flags-select/css/react-flags-select.css';
+import {connect} from "react-redux";
+import * as actions from "../../store/actions/localeAction";
 
 class NavBar extends Component {
+
+    onSelectFlag = (countryCode) => {
+        if (countryCode === "SA") {
+            this.props.setLocale('ar', 'rtl');
+        } else if (countryCode === "US") {
+            this.props.setLocale('en', 'ltr');
+        }
+    };
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -13,30 +26,23 @@ class NavBar extends Component {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Link</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <div className="dropdown-divider"/>
-                                <a className="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
+                    <ReactFlagsSelect className="menu-flags navbar-nav ml-auto mt-2 mt-lg-0 mr-5"
+                                      defaultCountry="US"
+                                      countries={["US", "SA"]}
+                                      customLabels={{"US": "English", "SA": "Arabic"}}
+                                      placeholder="Select Language"
+                                      showSelectedLabel={false}
+                                      onSelect={this.onSelectFlag}/>
                 </div>
             </nav>
         );
     }
 }
 
-export default NavBar;
+const mapDispatchToProps = dispatch => {
+    return {
+        setLocale: (lang, direction) => dispatch(actions.setLocale(lang, direction))
+    }
+};
+
+export default connect(null, mapDispatchToProps)(NavBar);

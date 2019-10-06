@@ -47,6 +47,19 @@ body {
     }
 }
 
-#posts-table{
+#posts-table {
     overflow-y: scroll;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker__input-container {
+    width: 100%;
+}
+
+.react-phone-number-input__icon {
+    border: none !important;
+    height: 1.5em !important;
 }

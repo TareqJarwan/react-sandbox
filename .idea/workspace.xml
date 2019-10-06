@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b734800-d0ff-4a7b-abf8-137d86792dee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/common/FlashMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/FlashMessagesList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/flashMessagesActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/flashMessagesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/tjarwan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/tjarwan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashborad/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashborad/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/common/Backdrop.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/common/Backdrop.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/common/Modal.css" />
@@ -22,6 +32,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -147,6 +171,17 @@
       <find>posts</find>
       <find>did</find>
       <find>strings</find>
+      <find>viewer</find>
+      <find>local</find>
+      <find>bold</find>
+      <find>MARK</find>
+      <find>EXAM</find>
+      <find>exam</find>
+      <find>col-10</find>
+      <find>ile</find>
+      <find>className</find>
+      <find>getClasses</find>
+      <find>GET_CLASSES</find>
       <find>Toggle</find>
       <find>modalIsOpen</find>
       <find>fulldescription</find>
@@ -158,6 +193,9 @@
       <replace>to</replace>
       <replace>Link</replace>
       <replace>STUDENT</replace>
+      <replace>EVENT</replace>
+      <replace>event</replace>
+      <replace>col-10</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -239,6 +277,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
+  <component name="ProjectId" id="1OgALeX4BmXi9zm4Gg6KmcMBRKu" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -316,16 +355,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552902058026" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564494523509" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v7.3.0/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -333,11 +377,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/store/reducers" />
+      <recent name="$PROJECT_DIR$/src/store/actions" />
       <recent name="$PROJECT_DIR$/src/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/dashborad/marks" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components/dashborad/attendance" />
+      <recent name="$PROJECT_DIR$/src/components/dashborad/marks" />
       <recent name="$PROJECT_DIR$/src/components/common" />
       <recent name="$PROJECT_DIR$/src/components/dashborad" />
     </key>
@@ -404,6 +451,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -439,6 +487,16 @@
       <envs />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
       <method>
         <option name="Make" enabled="true" />
       </method>
@@ -465,9 +523,60 @@
       <workItem from="1557526382490" duration="7164000" />
       <workItem from="1557702316602" duration="5973000" />
       <workItem from="1557914387391" duration="20748000" />
+      <workItem from="1559465740222" duration="18000" />
+      <workItem from="1559465784892" duration="2698000" />
+      <workItem from="1559551888532" duration="626000" />
+      <workItem from="1559556639794" duration="6564000" />
+      <workItem from="1560153346885" duration="587000" />
+      <workItem from="1560264328722" duration="4078000" />
+      <workItem from="1560339778313" duration="1787000" />
+      <workItem from="1561968086165" duration="554000" />
+      <workItem from="1561980262079" duration="1904000" />
+      <workItem from="1562057482808" duration="597000" />
+      <workItem from="1562158325419" duration="1199000" />
+      <workItem from="1562236969567" duration="13266000" />
+      <workItem from="1562508004203" duration="1604000" />
+      <workItem from="1563185434777" duration="18122000" />
+      <workItem from="1563351161438" duration="15902000" />
+      <workItem from="1563801550090" duration="4638000" />
+      <workItem from="1563889445922" duration="1612000" />
+      <workItem from="1564301010587" duration="588000" />
+      <workItem from="1564309387074" duration="597000" />
+      <workItem from="1564389049779" duration="1779000" />
+      <workItem from="1564401231381" duration="8097000" />
+      <workItem from="1570372336870" duration="3201000" />
       <workItem from="1561585637704" duration="9592000" />
       <workItem from="1561800311528" duration="1662000" />
     </task>
+    <task id="LOCAL-00001" summary="implement the events to the project">
+      <created>1562250761612</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562250761613</updated>
+    </task>
+    <task id="LOCAL-00002" summary="implement the events to the project">
+      <created>1563795379879</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563795379879</updated>
+    </task>
+    <task id="LOCAL-00003" summary="implement the events to the project">
+      <created>1563804254506</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1563804254506</updated>
+    </task>
+    <task id="LOCAL-00004" summary="implement the events to the project">
+      <created>1564497097156</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564497097156</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -518,6 +627,25 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="implement the localization to the project" />
+    <MESSAGE value="implement the events to the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement the events to the project" />
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>

@@ -4,7 +4,8 @@ import {updateObject} from "../../shared/utility";
 const initialState = {
     classes: [],
     class: {},
-    loading: false
+    loading: false,
+    message: ""
 };
 
 const classLoading = (state, action) => {
@@ -13,7 +14,8 @@ const classLoading = (state, action) => {
 
 function getClasses(state, action) {
     return updateObject(state, {
-        classes: action.payload,
+        classes: action.payload.data,
+        message: action.payload.status,
         loading: false
     });
 }

@@ -75,7 +75,7 @@ class Calendar extends Component {
 
     render() {
         return (
-            <div className="jumbotron bg-light">
+            
                 <div className="panel-body">
                     <FullCalendar
                         defaultView="dayGridMonth"
@@ -90,7 +90,6 @@ class Calendar extends Component {
                         events={this.state.calendarEvents}
                         dateClick={this.handleDateClick}/>
                 </div>
-            </div>
         );
     }
 }

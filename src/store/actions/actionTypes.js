@@ -24,5 +24,16 @@ export const GET_MARK = 'GET_MARK';
 export const ADD_MARK = 'ADD_MARK';
 export const DELETE_MARK = 'DELETE_MARK';
 
+export const EVENT_LOADING = 'EVENT_LOADING';
+export const GET_EVENTS = 'GET_EVENTS';
+export const GET_EVENT = 'GET_EVENT';
+export const ADD_EVENT = 'ADD_EVENT';
+export const DELETE_EVENT = 'DELETE_MARK';
+export const UPDATE_EVENT = 'UPDATE_EVENT';
+
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const LOCALE_SET = "LOCALE_SET";
+
+export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
+export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';

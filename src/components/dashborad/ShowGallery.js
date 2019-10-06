@@ -1,5 +1,3 @@
-import React, {Component} from 'react';
-import RcViewer from 'rc-viewer'
 
 import image1 from '../../assets/img/image1.jpg';
 import image2 from '../../assets/img/image2.jpg';
